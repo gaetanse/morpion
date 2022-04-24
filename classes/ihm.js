@@ -1,15 +1,12 @@
 import { Morpion } from "./morpion.js"
 
 export class Ihm {
-    constructor() {
-      this.nomJ1 = "X"
-      this.nomJ2 = "O"
-    }
+    constructor() {}
     async demarrer() {
         const morpion = new Morpion()
         do {
-            if(morpion.getTourDuJoueur()) await morpion.choixDuJoueur(this.nomJ1)
-            else await morpion.choixDuJoueur(this.nomJ2)
+            if(morpion.getTourDuJoueur()) await morpion.choixDuJoueur("X")
+            else await morpion.choixDuJoueur("O")
         } while(!await morpion.checkIsGameFinish())
     }
 }

@@ -8,17 +8,16 @@ export class Morpion {
     }
     async choixDuJoueur(joueur){
         console.log("Joueur : "+joueur+"\nCord y : ")
-
         let positonY = -50
         do{
             positonY = await poserUneQuestion()
-        }while(positonY<1||positonY>2)
+        }while(positonY<1||positonY>3)
 
         console.log("Cord x : ")
         let positonX = -50
         do{
             positonX = await poserUneQuestion()
-        }while(positonX<1||positonX>2)
+        }while(positonX<1||positonX>3)
 
         if(this.morpions[positonY-1][positonX-1] ==="[X]"||this.morpions[positonY-1][positonX-1] ==="[O]"){
             console.log("case deja utiliser \n")
@@ -47,6 +46,7 @@ export class Morpion {
         const win = new Win(this.morpions,[2,0,1,1,0,2],j)
         return win.check()
     }
+     
     check3(j){
         const win1 = new Win(this.morpions,[0,0,0,1,0,2],j)
         const win2 = new Win(this.morpions,[1,0,1,1,1,2],j)
